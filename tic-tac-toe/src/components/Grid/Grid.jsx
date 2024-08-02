@@ -49,7 +49,6 @@ function Grid({numberOfCards}){
             <>
             <h1 className="turn-highlight">Winner is {winner}</h1>
             <button onClick={reset} className="reset">Reset game</button>
-            <ToastContainer position="top-center"/>
             </>
             )}
         <h1 className="turn-highlight">Current Turn: {(turn)?'O' : 'X'}</h1>

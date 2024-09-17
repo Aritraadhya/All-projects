@@ -1,0 +1,34 @@
+body {
+    background-color: #88dad0;
+}
+.container-questions {
+    background-color: #e69797;
+    padding: 2rem;
+}
+.questions li {
+    list-style: none;
+    padding-left: 0;
+    background-color: #FFC107;
+    padding: 1rem!important;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: rgb(138, 41, 41)
+}
+.questions li.active {
+    background-color: #258a7e;
+    color: white;
+}
+p.category {
+    font-size: 1.2rem;
+}
+.heading {
+    margin-bottom: 2rem;
+}
+.badge {
+    font-size: 2rem;
+}
+.btn-primary,
+.btn-danger {
+    color: rgb(247, 238, 238)!important;
+    font-size: 1.2rem;
+}

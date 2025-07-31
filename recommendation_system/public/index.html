@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Recommender</title>
+</head>
+<body>
+  <h2>Product Recommender</h2>
+  <input id="userInput" placeholder="Enter user ID (e.g. U1)" />
+  <button onclick="getRecommendations()">Get Recommendations</button>
+  <p id="output"></p>
+
+  <script>
+    async function getRecommendations() {
+      const user = document.getElementById('userInput').value;
+      const res = await fetch(`/recommend/${user}`);
+      const data = await res.json();
+      document.getElementById('output').innerText = 
+        data.length ? 'Recommended: ' + data.join(', ') : 'No recommendations found';
+    }
+  </script>
+</body>
+</html>

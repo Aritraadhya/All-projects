@@ -29,6 +29,10 @@ function isWinner(board, symbol) {
     return "";
 }
 
+function isBoardFull(board) {
+    return board.every((cell) => cell !== "");
+}
+
 function maskFromBoard(board) {
     let oMask = 0;
     let xMask = 0;
@@ -112,6 +116,13 @@ function Grid({ numberOfCards }) {
             return;
         }
 
+        if (isBoardFull(newBoard)) {
+            setBoard(newBoard);
+            setWinner("Draw");
+            toast.info("It's a draw! The board is full.");
+            return;
+        }
+
         const aiIndex = getBestMove(newBoard);
         if (aiIndex !== null) {
             newBoard[aiIndex] = "X";
@@ -119,6 +130,13 @@ function Grid({ numberOfCards }) {
                 setBoard(newBoard);
                 setWinner("X");
                 toast.success("Congratulations X win the game!!");
+                return;
+            }
+
+            if (isBoardFull(newBoard)) {
+                setBoard(newBoard);
+                setWinner("Draw");
+                toast.info("It's a draw! The board is full.");
                 return;
             }
         }
@@ -136,7 +154,9 @@ function Grid({ numberOfCards }) {
             <ToastContainer />
             {winner && (
                 <>
-                    <h1 className="turn-highlight">Winner is {winner}</h1>
+                    <h1 className="turn-highlight">
+                        {winner === "Draw" ? "It's a draw!" : `Winner is ${winner}`}
+                    </h1>
                     <button onClick={reset} className="reset">Reset game</button>
                 </>
             )}

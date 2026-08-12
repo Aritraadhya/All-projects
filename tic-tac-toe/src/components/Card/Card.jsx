@@ -2,9 +2,6 @@ import Icon from "../Icon/Icon"
 import './Card.css';
 function Card({onPlay, player,index,gameEnd}){
     let icon=<Icon />
-    function playMove(){
-        onPlay();
-    }
     if(player=="X")
     {
         icon=<Icon name={"cross"}/>
